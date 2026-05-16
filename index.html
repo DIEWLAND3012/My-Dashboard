@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vasin - Dashboard Portfolio</title>
+
+    <link rel="stylesheet" href="css/main.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@line/seed@1.0.0/dist/line-seed-jp.css">
+</head>
+
+<body>
+    <div id="spa-progress-bar" class="spa-progress-bar"></div>
+
+    <div class="app-container">
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <div id="nav-indicator" class="nav-indicator"></div>
+
+                <ul class="nav-list">
+                    <li class="nav-item active" data-target="profile-page">
+                        <img src="icons/sidebar/profile.svg" alt="Profile Icon" class="nav-icon">
+                        <span class="nav-text">Profile</span>
+                    </li>
+                    <li class="nav-item" data-target="film-page">
+                        <img src="icons/sidebar/film.svg" alt="Film Icon" class="nav-icon">
+                        <span class="nav-text">Film</span>
+                    </li>
+                    <li class="nav-item" data-target="gallery-page">
+                        <img src="icons/sidebar/gallery.svg" alt="Gallery Icon" class="nav-icon">
+                        <span class="nav-text">Gallery</span>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="dashboard-content">
+
+            <section id="profile-page" class="page-section active">
+                <div class="bento-grid">
+                    <div class="bento-box main-profile-card">
+                        <div class="profile-info">
+                            <h1 class="profile-name">Vasin<br>Kaewmoragot</h1>
+                            <p class="profile-role">Film Director • Director of Photography • Film Editor</p>
+                            <button id="btn-view-profile" class="primary-btn">VIEW FULL PROFILE</button>
+                        </div>
+                        <div class="profile-image-container">
+                            <img src="images/profile/vasin-cutout.png" alt="Vasin Kaewmoragot"
+                                class="profile-overlay-img">
+                        </div>
+                    </div>
+
+                    <div class="bento-box contact-card">
+                        <h2 class="contact-title">contact</h2>
+                        <ul class="contact-list">
+                            <li>
+                                <div class="contact-icon-wrapper"><img src="icons/ui/instagram.svg" alt="IG"></div>
+                                <span>: v.k_dl</span>
+                            </li>
+                            <li>
+                                <div class="contact-icon-wrapper"><img src="icons/ui/line.svg" alt="LINE"></div>
+                                <span>: diewlandstudio</span>
+                            </li>
+                            <li>
+                                <div class="contact-icon-wrapper"><img src="icons/ui/email.svg" alt="Email"></div>
+                                <span>: vasink2006@gmail.com</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="most-popular-section">
+                    <h3 class="section-heading">Most Popular <img src="icons/ui/arrow-right-black.svg" alt="Arrow"
+                            class="heading-icon"></h3>
+                    <div class="random-content-grid">
+                        <div class="content-card">Random content</div>
+                        <div class="content-card">Random content</div>
+                        <div class="content-card">Random content</div>
+                        <div class="content-card">Random content</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="full-profile-page" class="page-section">
+                <div class="page-header">
+                    <button id="btn-back-profile" class="back-btn">
+                        <img src="icons/ui/arrow-left.svg" alt="Back"> Back
+                    </button>
+                    <div class="header-empty-bar"></div>
+                </div>
+                <div class="full-profile-container">
+                    <div class="full-profile-header">
+                        <h1 class="profile-name">Vasin<br>Kaewmoragot</h1>
+                    </div>
+                    <div class="full-profile-body">
+                        <div class="full-profile-left"></div>
+                        <div class="bento-box contact-card full-profile-contact">
+                            <h2 class="contact-title">contact</h2>
+                            <ul class="contact-list">
+                                <li>
+                                    <div class="contact-icon-wrapper"><img src="icons/ui/instagram.svg" alt="IG"></div>
+                                </li>
+                                <li>
+                                    <div class="contact-icon-wrapper"><img src="icons/ui/line.svg" alt="LINE"></div>
+                                </li>
+                                <li>
+                                    <div class="contact-icon-wrapper"><img src="icons/ui/email.svg" alt="Email"></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <img src="images/profile/vasin-cutout.png" alt="Vasin" class="full-profile-overlay-img">
+                </div>
+            </section>
+
+            <section id="film-page" class="page-section">
+                <div class="film-slider-controls">
+                    <button id="film-prev-btn" class="slider-btn" aria-label="Previous Film">
+                        <img src="icons/ui/arrow-left.svg" alt="Prev">
+                    </button>
+                    <button id="film-next-btn" class="slider-btn" aria-label="Next Film">
+                        <img src="icons/ui/arrow-right.svg" alt="Next">
+                    </button>
+                </div>
+
+                <div class="film-layout">
+                    <div class="film-bg-mask"></div>
+
+                    <div class="film-content">
+                        <div class="film-info-left">
+                            <h2 id="film-year" class="film-year">2023</h2>
+                            <h1 id="film-title" class="film-title">LAN SANG</h1>
+                            <p id="film-slogan" class="film-slogan">"A Journey Back to Nature"</p>
+                            <button class="watch-now-btn">
+                                <img src="icons/ui/play.svg" alt="Play" class="play-icon"> WATCH NOW!
+                            </button>
+                        </div>
+
+                        <div class="film-info-right">
+                            <div class="film-scene-container">
+                                <img id="film-scene-img" src="images/films/lan-sang/scene.jpg" alt="Film Scene"
+                                    class="film-scene-img">
+                            </div>
+                            <p id="film-description" class="film-description">
+                                "Escape the hustle and bustle of the big city and rediscover the magic of Lan Sang
+                                National Park. From childhood dreams to adult sanctuaries, this hidden gem in Tak,
+                                Thailand, offers more than just a waterfall..."
+                            </p>
+                            <p id="film-director" class="film-director">Directed by Vasin Kaewmoragot</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="gallery-page" class="page-section">
+                <div class="gallery-banner">
+                    <div class="camera-image-wrapper">
+                        <img src="images/gallery/camera.png" alt="Sony a7C II" class="camera-img">
+                    </div>
+                    <div class="banner-title-area">
+                        <h1 class="gallery-title">Gallery<br>2023-NOW</h1>
+                    </div>
+                    <div class="banner-details">
+                        <ul>
+                            <li>• Olympus OM-D E-M10 Mark I</li>
+                            <li>• Olympus OM D E-M5 Mark II</li>
+                            <li>• Sony a7C II</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="gallery-years-container">
+                    <div class="gallery-year-section">
+                        <h3 class="year-heading">2026 <img src="icons/ui/arrow-right-black.svg" alt="Arrow"></h3>
+                        <div class="gallery-grid">
+                            <div class="gallery-item">image 1:1</div>
+                            <div class="gallery-item">image 1:1</div>
+                            <div class="gallery-item">image 1:1</div>
+                            <div class="gallery-item">image 1:1</div>
+                            <div class="gallery-item">image 1:1</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-year-section">
+                        <h3 class="year-heading">2025 <img src="icons/ui/arrow-right-black.svg" alt="Arrow"></h3>
+                        <div class="gallery-grid">
+                            <div class="gallery-item">image 1:1</div>
+                            <div class="gallery-item">image 1:1</div>
+                            <div class="gallery-item">image 1:1</div>
+                            <div class="gallery-item">image 1:1</div>
+                            <div class="gallery-item">image 1:1</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-year-section">
+                        <h3 class="year-heading">2024 <img src="icons/ui/arrow-right-black.svg" alt="Arrow"></h3>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <div id="gallery-modal" class="gallery-modal">
+    </div>
+
+    <script src="js/data/filmsData.js" defer></script>
+    <script src="js/components/navigation.js" defer></script>
+    <script src="js/components/filmSlider.js" defer></script>
+    <script src="js/app.js" defer></script>
+</body>
+
+</html>
