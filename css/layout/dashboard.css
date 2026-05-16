@@ -1,0 +1,97 @@
+/* ==========================================================================
+   MY DASHBOARD - DASHBOARD.CSS (MAIN LAYOUT CONTAINER & CORE GRID)
+   ========================================================================== */
+
+/* Main application layout wrapper */
+.app-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--color-bg-dark);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Central content area where SPA pages are loaded */
+.dashboard-content {
+    flex: 1;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 40px;
+    position: relative;
+    scroll-behavior: smooth;
+}
+
+/* Professional dark-themed custom scrollbar for dashboard content */
+.dashboard-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.dashboard-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.dashboard-content::-webkit-scrollbar-thumb {
+    background: var(--color-accent-gray);
+    border-radius: 3px;
+}
+
+.dashboard-content::-webkit-scrollbar-thumb:hover {
+    background: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   SPA PAGE VIEW MANAGEMENT
+   ========================================================================== */
+
+/* Base style for all pages in the single-page application */
+.page-section {
+    display: none;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity var(--transition-normal), transform var(--transition-normal);
+}
+
+/* Triggered via JS to switch active pages smoothly */
+.page-section.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    animation: slideUpFadeIn var(--transition-normal) forwards;
+}
+
+/* Elegant transition animation when changing views */
+@keyframes slideUpFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================================================
+   SHARED BENTO GRID BOX COMPONENT
+   ========================================================================== */
+
+/* Reusable bento box container utilizing the noise texture and linear gradients */
+.bento-box {
+    background: var(--board-background-with-noise);
+    border: 1px solid var(--color-accent-gray);
+    border-radius: var(--radius-large);
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+/* Micro-interaction on hovering bento boxes */
+.bento-box:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+}

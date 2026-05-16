@@ -1,0 +1,108 @@
+/* ==========================================================================
+   MY DASHBOARD - SIDEBAR.CSS (NAVIGATION PANEL)
+   ========================================================================== */
+
+/* Elegant minimalist side navigation panel */
+.sidebar {
+    width: 240px;
+    height: 100vh;
+    background-color: var(--color-bg-dark);
+    border-right: 1px solid var(--color-accent-gray);
+    padding: 60px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    z-index: 100;
+    user-select: none;
+}
+
+/* Container for nav structure to handle indicator absolute tracking */
+.sidebar-nav {
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Navigation layout listing */
+.nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+/* Base item structure with proper spacing and text tokens */
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 20px;
+    border-radius: var(--radius-medium);
+    cursor: pointer;
+    color: var(--color-text-muted);
+    font-family: var(--font-primary);
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    position: relative;
+    z-index: 2;
+    /* Layers text above the moving white indicator block */
+    transition: color var(--transition-fast);
+}
+
+/* Navigation icon rules */
+.nav-item .nav-icon {
+    width: 18px;
+    height: 18px;
+    opacity: 0.5;
+    transition: opacity var(--transition-fast), transform var(--transition-fast), filter var(--transition-fast);
+}
+
+/* Hover Interactive State */
+.nav-item:hover {
+    color: var(--color-text-primary);
+}
+
+.nav-item:hover .nav-icon {
+    opacity: 0.9;
+    transform: translateX(2px);
+}
+
+/* Active State - triggered when the white highlight indicator is underneath */
+.nav-item.active {
+    color: #000000;
+    /* Contrast black color against white background indicator */
+    font-weight: 700;
+}
+
+.nav-item.active .nav-icon {
+    opacity: 1;
+    filter: invert(1);
+    /* Smoothly inverts SVG icons to black for clean legibility */
+}
+
+/* Highlight Indicator (The moving white background block controlled via JS) */
+.nav-indicator {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 47px;
+    /* Matches dynamic size of nav-item */
+    background-color: var(--color-accent-white);
+    border-radius: var(--radius-medium);
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
+    /* Hidden initially until JS calculates positions */
+    transition: top var(--transition-normal), height var(--transition-normal), opacity var(--transition-fast);
+    box-shadow: 0 4px 16px rgba(255, 255, 255, 0.1);
+}
+
+/* Shows indicator smoothly once active state is defined */
+.sidebar-nav:has(.nav-item.active) .nav-indicator {
+    opacity: 1;
+}
