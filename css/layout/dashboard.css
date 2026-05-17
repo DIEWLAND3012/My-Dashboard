@@ -1,69 +1,95 @@
 /* ==========================================================================
-   MY DASHBOARD - DASHBOARD.CSS (MAIN LAYOUT CONTAINER & CORE GRID)
+   DASHBOARD.CSS - LAYOUT & RESPONSIVE DESIGN
    ========================================================================== */
 
-/* Main application layout wrapper */
 .app-container {
     display: flex;
     width: 100%;
     height: 100vh;
-    background-color: var(--color-bg-dark);
     overflow: hidden;
-    position: relative;
 }
 
-/* Central content area where SPA pages are loaded */
+/* Sidebar คงที่ด้านซ้าย */
+.sidebar {
+    width: 120px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+    gap: 40px;
+    z-index: 100;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    gap: 10px;
+}
+
+.nav-label {
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.circle-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: transparent;
+    border: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+}
+
+.circle-btn svg {
+    stroke: white;
+}
+
+.nav-item.active .circle-btn {
+    background: var(--color-icon-active);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-item.active .circle-btn svg {
+    stroke: var(--color-btn-teal);
+}
+
+/* พื้นที่บอร์ดหลัก */
 .dashboard-content {
     flex: 1;
-    height: 100vh;
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding: 40px;
+    padding: 40px 40px 40px 0;
+    /* เว้นขวาและบนล่าง */
     position: relative;
-    scroll-behavior: smooth;
+    height: 100vh;
 }
 
-/* Professional dark-themed custom scrollbar for dashboard content */
-.dashboard-content::-webkit-scrollbar {
-    width: 6px;
-}
-
-.dashboard-content::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.dashboard-content::-webkit-scrollbar-thumb {
-    background: var(--color-accent-gray);
-    border-radius: 3px;
-}
-
-.dashboard-content::-webkit-scrollbar-thumb:hover {
-    background: var(--color-text-muted);
-}
-
-/* ==========================================================================
-   SPA PAGE VIEW MANAGEMENT
-   ========================================================================== */
-
-/* Base style for all pages in the single-page application */
 .page-section {
     display: none;
     width: 100%;
-    opacity: 0;
-    transform: translateY(15px);
-    transition: opacity var(--transition-normal), transform var(--transition-normal);
+    height: 100%;
+    background: var(--color-board-white);
+    border-radius: 30px;
+    position: relative;
+    animation: fadeIn var(--transition-normal) forwards;
 }
 
-/* Triggered via JS to switch active pages smoothly */
 .page-section.active {
     display: block;
-    opacity: 1;
-    transform: translateY(0);
-    animation: slideUpFadeIn var(--transition-normal) forwards;
 }
 
-/* Elegant transition animation when changing views */
-@keyframes slideUpFadeIn {
+.page-section.no-board {
+    background: transparent;
+    border-radius: 0;
+}
+
+@keyframes fadeIn {
     from {
         opacity: 0;
         transform: translateY(20px);
@@ -75,23 +101,61 @@
     }
 }
 
-/* ==========================================================================
-   SHARED BENTO GRID BOX COMPONENT
-   ========================================================================== */
+/* ==========================================
+   📱 RESPONSIVE RULES (Tablet & Mobile)
+   ========================================== */
 
-/* Reusable bento box container utilizing the noise texture and linear gradients */
-.bento-box {
-    background: var(--board-background-with-noise);
-    border: 1px solid var(--color-accent-gray);
-    border-radius: var(--radius-large);
-    padding: 32px;
-    position: relative;
-    overflow: hidden;
-    transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+/* Tablet (ต่ำกว่า 1024px) */
+@media (max-width: 1024px) {
+    .dashboard-content {
+        padding: 20px;
+    }
+
+    .sidebar {
+        width: 80px;
+        padding-top: 60px;
+    }
+
+    .nav-label {
+        display: none;
+        /* ซ่อนข้อความ เหลือแต่ไอคอน */
+    }
 }
 
-/* Micro-interaction on hovering bento boxes */
-.bento-box:hover {
-    border-color: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+/* Mobile (ต่ำกว่า 768px) */
+@media (max-width: 768px) {
+    .app-container {
+        flex-direction: column;
+        /* เปลี่ยน Layout เป็นแนวตั้ง */
+    }
+
+    .sidebar {
+        width: 100%;
+        height: 80px;
+        flex-direction: row;
+        justify-content: space-around;
+        padding-top: 0;
+        background: var(--color-bg-teal);
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 999;
+        box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-item {
+        flex-direction: row;
+    }
+
+    .dashboard-content {
+        padding: 10px;
+        height: calc(100vh - 80px);
+        /* หักความสูง Bottom Nav ออก */
+    }
+
+    .page-section {
+        border-radius: 20px;
+        /* ลดความโค้งในมือถือ */
+        overflow-y: auto;
+    }
 }

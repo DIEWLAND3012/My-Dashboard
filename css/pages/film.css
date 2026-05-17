@@ -1,0 +1,156 @@
+/* ==========================================================================
+   MY DASHBOARD - FILM.CSS (DIAGONAL CUT EXACT MATCH)
+   ========================================================================== */
+
+#film-page {
+    /* ไม่มี Board สีขาว, ปล่อยทะลุสี Teal */
+    overflow: hidden;
+}
+
+.film-layout {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* 1. ภาพพื้นหลังหนัง (IMG82451) จัดวางตามพิกัด 1322x939 */
+.film-bg-image {
+    position: absolute;
+    top: 40px;
+    left: 118px;
+    width: 1322px;
+    height: 939px;
+    object-fit: cover;
+    z-index: 1;
+}
+
+/* 2. รอยตัดทแยงมุม (Diagonal Hack ตาม Figma: กล่องหมุน -60 องศา) */
+.film-diagonal-mask {
+    position: absolute;
+    top: 59px;
+    left: 692px;
+    width: 1496px;
+    height: 1496px;
+    background-color: var(--color-placeholder);
+    /* #d9d9d9 */
+    transform: rotate(-60deg);
+    opacity: 0.7;
+    z-index: 2;
+}
+
+/* 3. กล่องสี Teal บังขอบบนและล่าง (Figma Overlay Technique) */
+.film-teal-top {
+    position: absolute;
+    top: -64px;
+    left: 891px;
+    width: 595px;
+    height: 104px;
+    background-color: var(--color-bg-main);
+    z-index: 3;
+}
+
+.film-teal-bottom {
+    position: absolute;
+    top: 979px;
+    left: 243px;
+    width: 1343px;
+    height: 85px;
+    background-color: var(--color-bg-main);
+    z-index: 3;
+}
+
+/* 4. เนื้อหา (Typography) */
+.film-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+.film-title {
+    position: absolute;
+    top: 156px;
+    left: calc(50% - 299px);
+    /* w=598px */
+    font-size: 96px;
+    /* text-8xl */
+    color: var(--color-text-white);
+}
+
+.film-year {
+    position: absolute;
+    top: 128px;
+    left: calc(50% - 526px);
+    font-size: 32px;
+    color: var(--color-text-white);
+}
+
+.film-slogan {
+    position: absolute;
+    top: 297px;
+    left: 194px;
+    font-size: 15px;
+    color: var(--color-text-white);
+}
+
+.film-description {
+    position: absolute;
+    top: 433px;
+    left: 966px;
+    width: 437px;
+    font-size: 15px;
+    color: var(--color-text-white);
+    line-height: 1.6;
+}
+
+.film-director {
+    position: absolute;
+    top: 674px;
+    left: 966px;
+    font-size: 15px;
+    color: var(--color-text-dark);
+}
+
+/* 5. ปุ่ม Watch Now! */
+.watch-now-wrapper {
+    position: absolute;
+    top: 385px;
+    left: 194px;
+}
+
+.watch-now-btn {
+    width: 251px;
+    height: 65px;
+    background-color: var(--color-icon-active);
+    /* #fffafd */
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--color-text-teal);
+    /* #267a97 */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 43px;
+    cursor: pointer;
+    transition: transform var(--transition-fast);
+}
+
+.watch-now-btn:hover {
+    transform: scale(1.05);
+}
+
+/* 6. ปุ่มลูกศรซ้ายขวา */
+.film-slider-controls {
+    position: absolute;
+    top: 88px;
+    right: 120px;
+    /* เทียบจาก left-1120px/1250px */
+    display: flex;
+    gap: 30px;
+    z-index: 20;
+}
